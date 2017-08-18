@@ -6,7 +6,7 @@ import org.iii.core.model.LabelValueModel;
 import org.iii.module.setting.car.entity.Cartype;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface CartypeService {

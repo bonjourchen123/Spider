@@ -9,7 +9,7 @@ import org.iii.core.entity.GenericCodeNameEntity;
 
 /**
  * @author Tony
- * @collaborator Kuso
+ * @collaborator bonjour
  *
  */
 @SuppressWarnings("serial")

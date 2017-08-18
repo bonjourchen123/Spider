@@ -9,7 +9,7 @@ import org.iii.core.security.entity.UserRole;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Kuso
+ * @author bonjour
  *
  */
 @Repository

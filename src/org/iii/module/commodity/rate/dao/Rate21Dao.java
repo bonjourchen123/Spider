@@ -9,7 +9,7 @@ import org.iii.module.commodity.rate.entity.Rate21;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Kuso
+ * @author bonjour
  * 
  *
  */

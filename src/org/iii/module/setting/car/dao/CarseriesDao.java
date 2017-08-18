@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author Tony
- * @collaborator Kuso,ShinChen
+ * @collaborator bonjour,ShinChen
  * 
  */
 @Repository

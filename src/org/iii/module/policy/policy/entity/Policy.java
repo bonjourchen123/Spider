@@ -14,7 +14,7 @@ import org.iii.module.policy.customer.entity.Customer;
 import org.joda.time.LocalDateTime;
 
 /**
- * @author Kuso
+ * @author bonjour
  *
  */
 @SuppressWarnings("serial")

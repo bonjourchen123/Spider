@@ -5,7 +5,7 @@ import java.util.List;
 import org.iii.core.model.ReportModel;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface ReportService {

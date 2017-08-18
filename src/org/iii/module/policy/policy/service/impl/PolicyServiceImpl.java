@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import com.google.common.collect.Lists;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @Service

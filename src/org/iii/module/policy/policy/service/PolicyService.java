@@ -7,7 +7,7 @@ import org.iii.module.policy.policy.entity.Policy;
 import org.iii.module.policy.policy.entity.PolicyItem;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface PolicyService {

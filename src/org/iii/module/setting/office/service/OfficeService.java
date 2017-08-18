@@ -7,7 +7,7 @@ import org.iii.core.security.entity.SecUser;
 import org.iii.module.setting.office.entity.Office;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface OfficeService {

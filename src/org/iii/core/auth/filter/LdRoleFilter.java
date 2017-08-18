@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public class LdRoleFilter implements Filter{

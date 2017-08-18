@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @SuppressWarnings({ "serial", "rawtypes" })

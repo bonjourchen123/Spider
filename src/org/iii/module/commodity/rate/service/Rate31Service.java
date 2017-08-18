@@ -5,7 +5,7 @@ import java.util.List;
 import org.iii.module.commodity.rate.entity.Rate31;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface Rate31Service {

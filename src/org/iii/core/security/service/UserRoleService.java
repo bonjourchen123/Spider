@@ -4,7 +4,7 @@ import java.util.List;
 import org.iii.core.security.entity.SecUser;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface UserRoleService {

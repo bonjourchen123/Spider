@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @SuppressWarnings("serial")

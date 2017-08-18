@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import org.iii.core.entity.GenericCodeNameEntity;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @SuppressWarnings("serial")

@@ -7,7 +7,7 @@ import org.iii.module.commodity.product.entity.Product;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @Repository

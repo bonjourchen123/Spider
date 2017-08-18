@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 import com.google.common.collect.Lists;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 @SuppressWarnings("serial")

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author Tony
- * @collaborator Kuso
+ * @collaborator bonjour
  *
  */
 @Repository

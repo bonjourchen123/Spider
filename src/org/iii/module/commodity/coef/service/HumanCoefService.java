@@ -3,7 +3,7 @@ package org.iii.module.commodity.coef.service;
 import org.iii.module.commodity.coef.entity.HumanCoef;
 
 /**
- * @author kuso
+ * @author bonjour
  *
  */
 public interface HumanCoefService {

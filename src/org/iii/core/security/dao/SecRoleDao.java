@@ -7,7 +7,7 @@ import org.iii.core.security.entity.SecRole;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Kuso
+ * @author bonjour
  *
  */
 @Repository

@@ -9,7 +9,7 @@ import org.iii.module.setting.car.entity.Cartype;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Kuso
+ * @author bonjour
  *
  */
 @Repository
