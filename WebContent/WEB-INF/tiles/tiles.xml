@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 在tiles先定義好名稱和路徑後  struts設定中可以直接使用名稱來找到對應的目標 -->
+
+	<!-- 主畫面框架 -->
+	<definition name="layout" template="/WEB-INF/layout/mainLayout.jsp">
+        <put-attribute name="css" value="/WEB-INF/css/style.jsp" />
+        <put-attribute name="header" value="/WEB-INF/header/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/header/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/header/footer.jsp" />
+    </definition>
+    <!-- 登入畫面框架 -->
+    <definition name="loginLayout" template="/WEB-INF/layout/loginLayout.jsp">
+        <put-attribute name="css" value="/WEB-INF/css/style.jsp" />
+        <put-attribute name="header" value="/WEB-INF/header/loginHeader.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/header/footer.jsp" />
+    </definition>
+
+	<!-- 登入畫面 -->
+	<definition name="index"  extends="loginLayout">
+		<put-attribute name="content" value="/WEB-INF/auth/index.jsp" />
+	</definition>
+	<!-- 進入前畫面 -->
+	<definition name="beforeWelcome"  extends="loginLayout">
+		<put-attribute name="content" value="/WEB-INF/auth/beforeWelcome.jsp" />
+	</definition>
+	<!-- 進入畫面 -->
+	<definition name="welcome" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/auth/welcome.jsp" />
+	</definition>
+	
+	<!-- 權限不足畫面 -->
+	<definition name="noCompetence" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/error/noCompetence.jsp" />
+	</definition>
+	
+	<!-- 修改密碼畫面 -->
+	<definition name="change" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/account/change.jsp" />
+	</definition>
+	<!-- 新建帳號畫面 -->
+	<definition name="accountCreate" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/account/create.jsp" />
+	</definition>
+	<!-- 查詢帳號畫面 -->
+	<definition name="accountQuery" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/account/query.jsp" />
+	</definition>
+	<!-- 編輯帳號畫面 -->
+	<definition name="update" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/account/update.jsp" />
+	</definition>
+
+	<!-- 新建保單畫面 -->
+	<definition name="policyCreate" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/policy/create.jsp" />
+	</definition>
+	<!-- 確認保單畫面 -->
+	<definition name="policyCheck" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/policy/check.jsp" />
+	</definition>
+	<!-- 顯示保單畫面 -->
+	<definition name="policyShow" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/policy/show.jsp" />
+	</definition>
+	<!-- 查詢保單畫面 -->
+	<definition name="policyQuery" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/policy/query.jsp" />
+	</definition>
+	<!-- 審核保單畫面 -->
+	<definition name="verify" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/policy/verify.jsp" />
+	</definition>
+	
+	<!-- 管理報表畫面 -->
+	<definition name="supervise" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/report/supervise.jsp" />
+	</definition>
+	<!-- 保單報表畫面 -->
+	<definition name="policy" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/report/policy.jsp" />
+	</definition>
+	
+	<!-- 強制險畫面 -->
+	<definition name="rate21" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/rate/rate21.jsp" />
+	</definition>
+	<!-- 第三傷害責任險畫面 -->
+	<definition name="rate31" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/rate/rate31.jsp" />
+	</definition>
+	<!-- 第三責任財損險畫面 -->
+	<definition name="rate32" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/rate/rate32.jsp" />
+	</definition>
+	<!-- 保費相關係數畫面 -->
+	<definition name="coef" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/rate/coef.jsp" />
+	</definition>
+	
+	<!-- 車種查詢畫面 -->
+	<definition name="type" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/type.jsp" />
+	</definition>
+	<!-- 車型設定畫面 -->
+	<definition name="model" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/model.jsp" />
+	</definition>
+	<!-- 增加車型設定畫面 -->
+	<definition name="addModel" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/addModel.jsp" />
+	</definition>
+	<!-- 編輯車型設定畫面 -->
+	<definition name="editorCarModel" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/editorModel.jsp" />
+	</definition>
+	<!-- 車系設定畫面 -->
+	<definition name="series" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/series.jsp" />
+	</definition>
+	<!-- 增加車系設定畫面 -->
+	<definition name="addSeries" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/addSeries.jsp" />
+	</definition>
+	<!-- 編輯車系設定畫面 -->
+	<definition name="editorCarseries" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/editorCarseries.jsp" />
+	</definition>
+	<!-- 廠牌設定畫面 -->
+	<definition name="brand" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/brand.jsp" />
+	</definition>
+	<!-- 增加廠牌設定畫面 -->
+	<definition name="addBrand" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/addBrand.jsp" />
+	</definition>
+	<!-- 編輯廠牌設定畫面 -->
+	<definition name="editorBrand" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/car/editorBrand.jsp" />
+	</definition>
+	<!-- 客戶管理畫面 -->
+	<definition name="customer" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/customer.jsp" />
+	</definition>
+	<!-- 增加客戶畫面 -->
+	<definition name="addCustomer" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/addCustomer.jsp" />
+	</definition>
+	<!-- 編輯客戶畫面 -->
+	<definition name="editorCustomer" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/editorCustomer.jsp" />
+	</definition>
+	<!-- 部門設定畫面 -->
+	<definition name="office" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/office.jsp" />
+	</definition>
+	<!-- 增加部門畫面 -->
+	<definition name="addOffice" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/addOffice.jsp" />
+	</definition>
+	<!-- 編輯部門畫面 -->
+	<definition name="editorOffice" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/editorOffice.jsp" />
+	</definition>
+	<!-- 黑名單設定畫面 -->
+	<definition name="blacklist" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/blacklist.jsp" />
+	</definition>
+	<!-- 增加黑名單畫面 -->
+	<definition name="addBlacklist" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/addBlacklist.jsp" />
+	</definition>
+	<!-- 編輯黑名單畫面 -->
+	<definition name="editorBlacklist" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/setting/editorBlacklist.jsp" />
+	</definition>
+</tiles-definitions>

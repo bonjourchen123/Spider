@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<!-- allow multiple submit in one form -->
+	<constant name="struts.mapper.action.prefix.enabled" value="true"/>
+	
+	<!-- not allow call method by url -->
+ 	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+ 	 
+	<constant name="struts.ui.theme" value="simple"/>	
+	<!-- 修改struts的預設   -->
+	
+	<!-- 登入登出 -->
+	<package name="org.iii.core.auth" extends="struts-default, json-default" namespace="/auth">  
+		<result-types>
+			<result-type default="true" name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+			<!-- 預設的回傳類別由tiles來指定目標 -->
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<action name="index" class="loginAction" method="index">
+			<!-- method指定Action中的方法名稱 沒寫預設execute -->
+         	<result name="input">index</result>
+         	<result name="success">welcome</result>
+      	</action>
+      	<action name="login" class="loginAction" method="login">
+         	<result name="input">index</result>
+         	<result name="success">beforeWelcome</result>
+      	</action>
+      	<action name="logout" class="loginAction" method="logout">
+         	<result name="input">index</result>
+      	</action>
+	</package>
+	
+	<!-- 錯誤畫面 -->
+	<package name="error" extends="org.iii.core.auth" namespace="/error">
+      	<action name="noCompetence" class="loginAction">
+         	<result name="success">noCompetence</result>
+      	</action>
+	</package>
+	
+	<!-- 帳號設定 -->
+	<package name="account" extends="org.iii.core.auth" namespace="/account">
+		<action name="change" class="accountAction">
+         	<result name="success">change</result>
+      	</action>
+      	<action name="changePassword" class="accountAction" method="changePassword">
+         	<result name="input">change</result>
+         	<result name="success">change</result>
+      	</action>
+      	<action name="create" class="accountAction" method="findOffices">
+         	<result name="success">accountCreate</result>
+      	</action>
+      	<action name="checkAccountEmpty" class="accountAction" method="checkAccountEmpty" >
+			<result type="json">
+				<param name="root">secUser</param>
+			</result>
+		</action>
+      	<action name="createAccount" class="accountAction" method="createAccount">
+         	<result name="input">accountCreate</result>
+         	<result name="success">accountCreate</result>
+      	</action>
+      	<action name="query" class="accountAction">
+         	<result name="success">accountQuery</result>
+      	</action>
+      	<action name="queryAccount" class="accountAction" method="queryAccount">
+         	<result name="success">accountQuery</result>
+      	</action>
+      	<action name="update" class="accountAction" method="update">
+         	<result name="success">update</result>
+      	</action>
+      	<action name="updateAccount" class="accountAction" method="updateAccount">
+         	<result name="input">update</result>
+         	<result name="success">accountQuery</result>
+      	</action>
+      	<action name="resetPassword" class="accountAction" method="resetPassword">
+         	<result name="success">accountQuery</result>
+      	</action>
+      	<action name="delete" class="accountAction" method="delete">
+         	<result name="success">accountQuery</result>
+      	</action>
+	</package>
+	
+	<!-- 保單管理 -->
+	<package name="policy" extends="org.iii.core.auth" namespace="/policy">
+      	<action name="create" class="">
+         	<result name="success">policyCreate</result>
+      	</action>
+      	<action name="checkPolicy" class="policyAction" method="checkPolicy">
+         	<result name="input">policyCreate</result>
+         	<result name="success">policyCheck</result>
+      	</action>
+      	<action name="createPolicy" class="policyAction" method="createPolicy">
+         	<result name="input">policyCreate</result>
+         	<result name="success">policyShow</result>
+      	</action>
+      	<action name="query" class="policyAction">
+         	<result name="success">policyQuery</result>
+      	</action>
+      	<action name="queryPolicy" class="policyAction" method="queryPolicy">
+         	<result name="success">policyQuery</result>
+      	</action>
+      	<action name="showPolicy" class="policyAction" method="showPolicy">
+         	<result name="success">policyShow</result>
+      	</action>
+      	<action name="verify" class="policyAction">
+         	<result name="success">verify</result>
+      	</action>
+      	<action name="queryVerify" class="policyAction" method="queryVerify">
+         	<result name="success">verify</result>
+      	</action>
+      	<action name="showVerify" class="policyAction" method="showVerify">
+         	<result name="success">policyShow</result>
+      	</action>
+      	<action name="verifyPolicy" class="policyAction" method="verifyPolicy">
+         	<result name="success">verify</result>
+      	</action>
+	</package>
+	
+	<!-- 報表功能 -->
+	<package name="report" extends="org.iii.core.auth" namespace="/report">
+      	<action name="supervise" class="reportAction">
+         	<result name="success">supervise</result>
+      	</action>
+      	<action name="querySupervise" class="reportAction" method="querySupervise" >
+			<result type="json">
+				<param name="root">superviseData</param>
+			</result>
+		</action>
+      	<action name="policy" class="reportAction" method="findYears">
+         	<result name="success">policy</result>
+      	</action>
+		<action name="queryPolicy" class="reportAction" method="queryPolicy" >
+			<result type="json">
+				<param name="root">policyData</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 保費查詢 -->
+	<package name="rate" extends="org.iii.core.auth" namespace="/rate">
+      	<action name="rate21" class="rateAction" method="findCartypes">
+         	<result name="success">rate21</result>
+      	</action>
+      	<action name="queryRate21" class="rateAction" method="queryRate21">
+         	<result name="success">rate21</result>
+      	</action>
+      	<action name="rate31" class="rateAction" method="findCartypes">
+         	<result name="success">rate31</result>
+      	</action>
+      	<action name="queryRate31" class="rateAction" method="queryRate31">
+         	<result name="success">rate31</result>
+      	</action>
+      	<action name="rate32" class="rateAction" method="findCartypes">
+         	<result name="success">rate32</result>
+      	</action>
+      	<action name="queryRate32" class="rateAction" method="queryRate32">
+         	<result name="success">rate32</result>
+      	</action>
+      	<action name="coef" class="rateAction">
+         	<result name="success">coef</result>
+      	</action>
+	</package>
+	
+	<!-- 車輛設定 -->
+	<package name="car" extends="org.iii.core.auth" namespace="/car">
+      	<action name="type" class="cartypeAction">
+         	<result name="success">type</result>
+      	</action>
+      	<action name="queryType" class="cartypeAction" method="queryType">
+         	<result name="success">type</result>
+      	</action>
+      	<action name="queryTypeAjax" class="cartypeAction" method="queryTypeAjax" >
+			<result type="json">
+				<param name="root">cartype</param>
+			</result>
+		</action>
+		<!-- 車型設定 -->
+      	<action name="model" class="carmodelAction">
+         	<result name="success">model</result>
+      	</action>
+      	<action name="queryModel" class="carmodelAction"  method="queryModel">
+         	<result name="success">model</result>
+      	</action>
+      	<action name="queryModelAjax" class="carmodelAction" method="queryModelAjax" >
+			<result type="json">
+				<param name="root">carmodel</param>
+			</result>
+		</action>
+      	<action name="addModel" class="">
+         	<result name="success">addModel</result>
+      	</action>
+      	<action name="createCarModel" class="carmodelAction" method="createCarModel">
+      		<result name="input">addModel</result>
+         	<result name="success">addModel</result>
+      	</action>
+      	<action name="editorCarModel" class="carmodelAction" method="editorCarModel"> 
+         	<result name="success">editorCarModel</result>
+      	</action>
+      	<action name="updateCarModel" class="carmodelAction" method="updateCarModel">
+           	<result name="input">editorCarModel</result>  
+         	<result name="success">model</result>
+      	</action>
+      	<action name="deleteCarModel" class="carmodelAction" method="deleteCarModel">
+         	<result name="success">model</result>
+      	</action>
+      	<action name="series" class="carseriesAction">
+         	<result name="success">series</result>
+      	</action>
+      	<action name="queryCarseries" class="carseriesAction" method="queryCarseries">
+         	<result name="success">series</result>
+      	</action>
+      	<action name="addSeries" class="carseriesAction">
+         	<result name="input">addSeries</result>
+         	<result name="success">addSeries</result>
+      	</action>
+      	<action name="createCarseries" class="carseriesAction" method="createCarseries">
+         	<result name="input">addSeries</result>
+         	<result name="success">addSeries</result>
+      	</action>
+      	<action name="editorCarseries" class="carseriesAction" method="editorCarseries"> 
+         	<result name="success">editorCarseries</result>
+      	</action>
+      	<action name="updateCarseries" class="carseriesAction" method="updateCarseries">
+           	<result name="input">editorCarseries</result>  
+         	<result name="success">series</result>
+      	</action>
+		<action name="deleteCarseries" class="carseriesAction" method="deleteCarseries">
+         	<result name="success">series</result>
+      	</action>
+      	<action name="queryBrandAjax" class="carseriesAction" method="queryBrandAjax" >
+			<result type="json">
+				<param name="root">brand</param>
+			</result>
+		</action>
+		<action name="checkCarseriesEmpty" class="carseriesAction" method="checkCarseriesEmpty" >
+			<result type="json">
+				<param name="root">carseries</param>
+			</result>
+		</action>
+     	<action name="brand" class="brandAction">
+         	<result name="success">brand</result>
+      	</action>
+      	<action name="queryBrand" class="brandAction" method="queryBrand">
+         	<result name="success">brand</result>
+      	</action>
+      	<action name="addBrand" class="">
+         	<result name="success">addBrand</result>
+      	</action>
+      	<action name="createBrand" class="brandAction" method="createBrand">
+         	<result name="input">addBrand</result>
+         	<result name="success">addBrand</result>
+      	</action>
+      	<action name="editorBrand" class="brandAction" method="editorBrand"> 
+         	<result name="success">editorBrand</result>
+      	</action>
+      	<action name="updateBrand" class="brandAction" method="updateBrand">
+           	<result name="input">editorBrand</result>  
+         	<result name="success">brand</result>
+      	</action>
+      	<action name="deleteBrand" class="brandAction" method="deleteBrand">
+         	<result name="success">brand</result>
+      	</action>
+      	<action name="checkBrandEmpty" class="brandAction" method="checkBrandEmpty" >
+			<result type="json">
+				<param name="root">brand</param>
+			</result>
+		</action>
+	</package>
+		
+	<!-- 相關設定 -->
+	<package name="setting" extends="org.iii.core.auth" namespace="/setting">
+      	<action name="customer" class="customerAction">
+         	<result name="success">customer</result>
+      	</action>
+      	<action name="queryCustomer" class="customerAction" method="queryCustomer">
+      		<result name="success">customer</result>
+		</action>
+      	<action name="addCustomer" class="customerAction">
+         	<result name="input">addCustomer</result>
+         	<result name="success">addCustomer</result>
+      	</action>
+		<action name="createCustomer" class="customerAction" method="createCustomer">
+         	<result name="input">addCustomer</result>
+         	<result name="success">addCustomer</result>
+      	</action>
+      	<action name="editorCustomer" class="customerAction" method="editorCustomer"> 
+         	<result name="success">editorCustomer</result>
+      	</action>
+      	<action name="renewCustomer" class="customerAction" method="renewCustomer">
+           	<result name="input">editorCustomer</result>  
+         	<result name="success">customer</result>
+      	</action>
+      	<action name="deleteCustomer" class="customerAction" method="deleteCustomer">
+         	<result name="success">customer</result>
+      	</action>
+      	<action name="checkPinEmpty" class="customerAction" method="checkPinEmpty" >
+			<result type="json">
+				<param name="root">customerEmpty</param>
+			</result>
+		</action>
+      	<action name="queryCustomerAjax" class="customerAction" method="queryCustomerAjax" >
+			<result type="json">
+				<param name="root">customerString</param>
+			</result>
+		</action>
+      	<action name="queryOffice" class="officeAction" method="queryOffice">
+         	<result name="success">office</result>
+      	</action>
+      	<action name="office" class="officeAction">
+         	<result name="success">office</result>
+      	</action>
+      	<action name="addOffice" class="">
+         	<result name="success">addOffice</result>
+      	</action>
+      	<action name="createOffice" class="officeAction" method="createOffice">
+         	<result name="input">addOffice</result>
+         	<result name="success">addOffice</result>
+      	</action>
+      	<action name="deleteOffice" class="officeAction" method="deleteOffice">
+         	<result name="success">office</result>
+      	</action>
+      	<action name="editorOffice" class="officeAction" method="editorOffice"> 
+         	<result name="success">editorOffice</result>
+      	</action>
+      	<action name="updateOffice" class="officeAction" method="updateOffice">
+           	<result name="input">editorOffice</result>  
+         	<result name="success">office</result>
+      	</action>
+      	<action name="checkOfficeCodeEmpty" class="officeAction" method="checkOfficeCodeEmpty" >
+			<result type="json">
+				<param name="root">office</param>
+			</result>
+		</action>
+		<action name="checkOfficeLocalNameEmpty" class="officeAction" method="checkOfficeLocalNameEmpty" >
+			<result type="json">
+				<param name="root">office</param>
+			</result>
+		</action>
+		<action name="checkOfficeEngNameEmpty" class="officeAction" method="checkOfficeEngNameEmpty" >
+			<result type="json">
+				<param name="root">office</param>
+			</result>
+		</action>
+		<action name="blacklist" class="blacklistAction">
+         	<result name="success">blacklist</result>
+      	</action>
+      	<action name="queryBlacklist" class="blacklistAction" method="queryBlacklist">
+         	<result name="success">blacklist</result>
+      	</action>
+      	<action name="addBlacklist" >
+         	<result name="success">addBlacklist</result>
+      	</action>
+      	<action name="createBlacklist" class="blacklistAction" method="createBlacklist">
+         	<result name="input">addBlacklist</result>
+         	<result name="success">addBlacklist</result>
+      	</action>
+      	<action name="editorBlacklist" class="blacklistAction" method="editorBlacklist"> 
+         	<result name="success">editorBlacklist</result>
+      	</action>
+      	<action name="updateBlacklist" class="blacklistAction" method="updateBlacklist">
+           	<result name="input">editorBlacklist</result>  
+         	<result name="success">blacklist</result>
+      	</action>
+      	<action name="deleteBlacklist" class="blacklistAction" method="deleteBlacklist">
+         	<result name="success">blacklist</result>
+      	</action>
+      	<action name="checkBlacklistEmpty" class="blacklistAction" method="checkBlacklistEmpty" >
+			<result type="json">
+				<param name="root">blacklist</param>
+			</result>
+		</action>
+	</package>
+</struts>
